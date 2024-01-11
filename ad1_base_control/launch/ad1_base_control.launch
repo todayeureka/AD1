@@ -1,0 +1,41 @@
+<launch>
+<!-- twist_mux  --> 
+<node pkg="twist_mux" type="twist_mux" name="twist_mux" output="screen">
+    <remap from="cmd_vel_out" to="cmd_vel"/>
+    <rosparam file="$(find ad1_base_control)/param/twist_mux_topics.yaml" command="load"/>
+  </node> 
+
+<!-- ad1 robot -->
+<node name="serial_node" pkg="rosserial_python" type="serial_node.py">
+        <param name="port" value="/dev/ttyUSB0"/>
+        <param name="baud" value="115200"/>
+    </node> 
+
+
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="tf1" args="0 0 0.05 0 0 0 base_footprint base_link" />  
+
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="tf2" args="0.2 0 0.05 1.570796 0 0 base_link rp_link"/> 
+
+
+
+<!-- teleop joy stick to joy/cmd_vel --> 
+  <node pkg="ad1_base_control" type="ad1_teleop" name="ad1_teleop" output="screen">
+  </node>  
+  
+
+
+<!-- ad1 odometry -->
+  <node pkg="ad1_base_control" type="ad1_odometry_vw" name="ad1_odometry_vw" output="screen">
+  </node> 
+
+
+ <!-- joystick -->
+<node name="joy_node" pkg="joy" type="joy_node">
+<param name="dev" value="/dev/input/js0"/>
+    <param name="autorepeat_rate" value="10"/> 
+    </node> 
+
+
+</launch>

@@ -1,0 +1,13 @@
+# motor
+int16[] rpm
+int32[] position
+uint8[] status
+uint16[] speed_p
+uint16[] speed_i
+float32[] velocities
+# bms
+float32 voltage
+float32 soc
+float32 soh
+# environment
+uint16[] envi

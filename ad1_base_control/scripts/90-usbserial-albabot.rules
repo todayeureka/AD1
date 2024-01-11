@@ -1,0 +1,4 @@
+#KERNEL in USB order
+KERNEL=="ttyUSB*", KERNELS=="3-3", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0777", SYMLINK+="albabot-ad1"
+KERNEL=="ttyUSB*", KERNELS=="3-2", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", MODE:="0777", SYMLINK+="rplidar"
+
