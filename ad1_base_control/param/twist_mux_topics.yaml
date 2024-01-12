@@ -18,6 +18,10 @@ topics:
   topic   : web/cmd_vel_low
   timeout : 0.5
   priority: 2
+- name    : keyboardcontrol
+  topic   : key/cmd_vel
+  timeout : 0.5
+  priority: 3  
 
 locks:
 - name    : e_stop
