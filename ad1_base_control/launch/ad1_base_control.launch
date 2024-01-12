@@ -37,5 +37,9 @@
     <param name="autorepeat_rate" value="10"/> 
     </node> 
 
+<!-- teleop keyboard to key/cmd_vel --> 
+  <node pkg="ad1_base_control" type="ad1_teleop_keyboard" name="ad1_teleop_keyboard" output="screen">
+  <remap from="cmd_vel" to="key/cmd_vel"/>
+  </node> 
 
 </launch>
